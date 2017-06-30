@@ -5,6 +5,47 @@
 	<title>6-30学习总结</title>
 </head>
 <body>
-	<h1>跨域，回调函数，apply(),call(),bind()</h1>
+	<h1>跨域，js异步编程与回调函数，apply(),call(),bind()</h1>
+	<div id="kuayu">
+		<h2>跨域</h2>
+		<p>受浏览器同源策略的限制，本域的js不能操作其他域的页面对象（比如DOM）。</p>
+		<h3>单向跨域(一)jsonp跨域</h3>
+		<p>因为通过script标签引入的js是不受同源策略的限制的，所以我们可以通过script标签引入一个js或者是一个其他后缀形式（如PHP，jsp等）的文件，此文件返回一个js函数的调用，如返回JSONP_getUsers(["paco","john","lili"])，也就是说此文件返回的结果调用了JSONP_getUsers函数，并且把["paco","john","lili"]传进去，这个["paco","john","lili"]是一个用户列表。那么如果此时我们的页面中有一个JSONP_getUsers函数，那么JSONP_getUsers就被调用到，并且传入了用户列表。此时就实现了在本域获取其他域数据的功能，也就是跨域。</p>
+		<p>为什么script标签引入的文件不受同源策略的限制？因为script标签引入的文件内容是不能够被客户端的js获取到的，不会影响到被引用文件的安全，所以没必要使script标签引入的文件遵循浏览器的同源策略。而通过ajax加载的文件内容是能够被客户端js获取到的，所以ajax必须遵循同源策略，否则被引入文件的内容会泄漏或者存在其他风险。</p>
+		<p>JSONP的缺点则是：它只支持GET请求而不支持POST等其它类型的HTTP请求（虽然采用post+动态生成iframe是可以达到post跨域的目的，但这样做是一个比较极端的方式，不建议采用）。一般get请求能完成所有功能。比如如果需要给其他域服务器传送参数可以在请求后挂参数（注意不要挂隐私数据）</p>
+		<h3>单向跨域(二) flash URLLoader</h3>
+		<p>lash有自己的一套安全策略，服务器可以通过crossdomain.xml文件来声明能被哪些域的SWF文件访问，SWF也可以通过API来确定自身能被哪些域的SWF加载。当跨域访问资源时，例如从域baidu.com请求域google.com上的数据，我们可以借助flash来发送HTTP请求。首先，修改域google.com上的crossdomain.xml(一般存放在根目录，如果没有需要手动创建) ，把baidu.com加入到白名单。其次，通过Flash URLLoader发送HTTP请求，最后，通过Flash API把响应结果传递给JavaScript。Flash URLLoader是一种很普遍的跨域解决方案，不过需要支持iOS的话，这个方案就不可行了。</p>
+		<h3>单向跨域(三)Access Control</h3>
+		<p>此跨域方法目前只在很少的浏览器中得以支持，这些浏览器可以发送一个跨域的HTTP请求（Firefox, Google Chrome等通过XMLHTTPRequest实现，IE8下通过XDomainRequest实现），请求的响应必须包含一个Access- Control-Allow-Origin的HTTP响应头，该响应头声明了请求域的可访问权限。例如baidu.com对google.com下的getUsers.php发送了一个跨域的HTTP请求（通过ajax），那么getUsers.php必须加入如下的响应头：header("Access-Control-Allow-Origin: http://www.baidu.com");//表示允许baidu.com跨域请求本文件  </p>
+		<h3>单向跨域(四)window.name</h3>
+		<p>window 对象的name属性是一个很特别的属性，当该window的location变化，然后重新加载，它的name属性可以依然保持不变。那么我们可以在页面 A中用iframe加载其他域的页面B，而页面B中用javascript把需要传递的数据赋值给window.name，iframe加载完成之后（iframe.onload），页面A修改iframe的地址，将其变成同域的一个地址，然后就可以读出iframe的window.name的值了（因为A中的window.name和iframe中的window.name互相独立的，所以不能直接在A中获取window.name，而要通过iframe获取其window.name）。这个方式非常适合单向的数据请求，而且协议简单、安全。不会像JSONP那样不做限制地执行外部脚本</p>
+		<h3>单向跨域(五)服务器代理</h3>
+		<p>在数据提供方没有提供对JSONP协议或者 window.name协议的支持，也没有对其它域开放访问权限时，我们可以通过server proxy的方式来抓取数据。例如当baidu.com域下的页面需要请求google.com下的资源文件getUsers.php时，直接发送一个指向 google.com/getUsers.php的Ajax请求肯定是会被浏览器阻止。这时，我们在baidu.com下配一个代理，然后把Ajax请求绑定到这个代理路径下，例如baidu.com/proxy/, 然后这个代理发送HTTP请求访问google.com下的getUsers.php，跨域的HTTP请求是在服务器端进行的（服务器端没有同源策略限制），客户端并没有产生跨域的Ajax请求。这个跨域方式不需要和目标资源签订协议，带有侵略性。</p>
+		<h2>双向跨域，两个iframe之间或者两个页面之间，一般用于获取对方数据，document.domain方式还可以直接操作对方DOM</h2>
+		<h3>document.domain</h3>
+		<p>通过修改document的domain属性，我们可以在域和子域或者不同的子域之间通信。同域策略认为域和子域隶属于不同的域，比如baidu.com和 youxi.baidu.com是不同的域，这时，我们无法在baidu.com下的页面中调用youxi.baidu.com中定义的JavaScript方法。但是当我们把它们document的domain属性都修改为baidu.com，浏览器就会认为它们处于同一个域下，那么我们就可以互相获取对方数据或者操作对方DOM了。</p>
+		<h3>location.hash（两个iframe之间），又称FIM，Fragment Identitier Messaging的简写</h3>
+		<p>因为父窗口可以对iframe进行URL读写，iframe也可以读写父窗口的URL，URL有一部分被称为hash，就是#号及其后面的字符，它一般用于浏览器锚点定位，Server端并不关心这部分，应该说HTTP请求过程中不会携带hash，所以这部分的修改不会产生HTTP请求，但是会产生浏览器历史记录。此方法的原理就是改变URL的hash部分来进行双向通信。每个window通过改变其他 window的location来发送消息（由于两个页面不在同一个域下IE、Chrome不允许修改parent.location.hash的值，所以要借助于父窗口域名下的一个代理iframe），并通过监听自己的URL的变化来接收消息。这个方式的通信会造成一些不必要的浏览器历史记录，而且有些浏览器不支持onhashchange事件，需要轮询来获知URL的改变，最后，这样做也存在缺点，诸如数据直接暴露在了url中，数据容量和类型都有限等。</p>
+		<h3>location.hash/document.domain/postMessage/CORS</h3>
+	</div>
+	<div id="async">
+		<h2>js异步编程及回调函数</h2>
+		<a href="http://www.ruanyifeng.com/blog/2012/12/asynchronous%EF%BC%BFjavascript.html">阮一峰博客</a>
+		<p>"同步模式"就是上一段的模式，后一个任务等待前一个任务结束，然后再执行，程序的执行顺序与任务的排列顺序是一致的、同步的；"异步模式"则完全不同，每一个任务有一个或多个回调函数（callback），前一个任务结束后，不是执行后一个任务，而是执行回调函数，后一个任务则是不等前一个任务结束就执行，所以程序的执行顺序与任务的排列顺序是不一致的、异步的。</p>
+		<h3>回调函数</h3>
+		<h3>事件监听</h3>
+		<h3>发布订阅</h3>
+		<h3>Promises对象</h3>
+		<h3>Generator</h3>
+		<h2>回调函数</h2>
+		<p>A callback is a function that is passed as an argument to another function and is executed after its parent function has completed.</p>
+	</div>
+	<div id="func">
+		<h2>different among call(),apply(),bind()</h2>
+		<p>call(this,num1,num2,num3)</p>
+		<p>apply(this,[num1,num2,num3])</p>
+		<a href="http://www.cnblogs.com/pssp/p/5215621.html">相关内容较好博客</a>
+		<p>待细读JavaScript语言精粹后补充</p>
+	</div>
 </body>
 </html>

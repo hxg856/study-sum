@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>页面跳转</h1>
+	<h2>在原来的窗体中直接跳转</h2>
+	<div>
+　　	window.location.href="你所要跳转的页面";
+	</div>
+	<h2>在新的窗口打开</h2>
+	<div>	
+　　	window.open('你所要跳转的页面');
+	</div>
+	<div>
+		<p>window.open ('page.html', 'newwindow', 'height=100, width=400, top=0,left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')</p>
+		<p>
+		"window.open 弹出新窗口的命令；" </br>
+　　	"'page.html' 弹出窗口的文件名；" </br>
+　　	"'newwindow' 弹出窗口的名字（不是文件名），非必须，可用空'代替；" </br>
+　　	"height=100 窗口高度；" </br>
+　　	"width=500 窗口宽度；"</br>
+　　	"top=0 窗口距离屏幕上方的象素值；" </br>
+　　	"left=0 窗口距离屏幕左侧的象素值。</p>
+	</div>
+	<div>
+		<ul>
+			<li>window.navigate("b.html");</li>
+			<li>self.location = "hmoe.html"</li>
+			<li>window.history.back(-1);</li>
+			<li>window.history.go(-1);</li>
+		</ul>
+	</div>
+	<h2>页面提留指定时间后跳转</h2>
+	<div>
+		function jumurl(){</br>
+	　　	window.location.href = 'http://www.mahaixiang.cn/';</br>
+	　　}</br>
+	　　setTimeout(jumurl,3000);</br>
+	</div>
+	<h2 style="color:red">待补充：带参数的页面跳转</h2>
+	</br></br></br>
+
+
+
+	<h1>ajax以及跨域</h1>
+	<h2>ajax概述</h2>
+	<div>
+		<p>主要依靠XMLHttpRequest对象</p>
+		<h3>主要步骤</h3>
+		<ul>
+			<li>var request = new XMLHttpRequest();</li>
+			<li>request.onreadystatechange = function (){readyState,status}</li>
+			<li>request.open('GET', '/api/categories');</li>
+			<li>request.send();</li>
+		</ul>
+		<h6 style="color:red">低版本的IE，需要换一个ActiveXObject对象</h6>
+		<p>检测window是否拥有XMLHttpRequesy对象，先设置onreadystatechange()的回调函数，通常使用readyState == 4，status == 200判断事都是一个成功的相应</p>
+		<p>open()有三个参数，第一个参数支出是GET还是POST，第二个参数指出请求的URL，第三个参数指是否使用异步，默认值是true。所以不用写</p>
+		<p>千万不要把第三个参数指定为false，否则浏览器将停止响应，直到AJAX请求完成。如果这个请求耗时10秒，那么10秒内你会发现浏览器处于“假死”状态。</p>
+		<p>最后调用send()方法才真正发送请求。GET请求不需要参数，POST请求需要把body部分以字符串或者FormData对象传进去。</p>
+		<h3>主要几个跨域方法</h3>
+		<p>一是通过Flash插件发送HTTP请求，这种方式可以绕过浏览器的安全限制，但必须安装Flash，并且跟Flash交互。(少用)</p>
+		<p>二是通过在同源域名下架设一个代理服务器来转发，JavaScript负责把请求发送到代理服务器：'/proxy?url=http://www.sina.com.cn'代理服务器再把结果返回，这样就遵守了浏览器的同源策略。这种方式麻烦之处在于需要服务器端额外做开发。</p>
+		<p>第三种方式称为JSONP，它有个限制，只能用GET请求，并且要求返回JavaScript。这种方式跨域实际上是利用了浏览器允许跨域引用JavaScript资源：</p>
+	</div>
+</html>

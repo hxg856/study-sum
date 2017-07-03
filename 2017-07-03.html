@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学习日记</title>
+</head>
+<body>
+	<div>
+		<h1>vue.js的安装</h1>
+		<h3>全局安装vue-cli</h3>
+		<p>cnpm install -g vue-cli</p>
+		<h3>创建一个基于“webpack”模板的新项目</h3>
+		<p>vue init webpack my-project</p>
+		<p>cd my-project</p>
+		<p>cnpm install</p>
+		<p>cnpm run dev</p>
+	</div>
+	<div>
+	<h1>安装使用webstorm</h1>
+	<p>重构</p></div>
+</body>
+</html>
+
+git filter-branch --env-filter '
+OLD_EMAIL="hxg856@qq.com"
+CORRECT_NAME="hxg856"
+CORRECT_EMAIL="452089277@qq.com"
+if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+then
+    export GIT_AUTHOR_NAME="$CORRECT_NAME"
+    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+'

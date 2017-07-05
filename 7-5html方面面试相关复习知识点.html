@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2017-07-05</title>
+</head>
+<body>
+	<div>
+		<h1>文档模式，doctype声明，严格模式</h1>
+		<p>文档模式：混杂模式，标准模式，准标准模式，超级标准模式</p>
+	</div>
+	<div>
+		<h1>html与xhtml的区别</h1>
+		<ul>
+			<li>xhtml元素必须被正确地嵌套</li>
+			<li>xhtml必须被关闭</li>
+			<li>标签名必须小写</li>
+			<li>xhtml必须拥有根元素</li>
+		</ul>
+	</div>
+	<div>
+		<h1>link和@import的区别</h1>
+		<p>页面中使用CSS的方式主要有3种：行内添加定义style属性值，页面头部内嵌调用和外面链接调用，其中外面引用有两种：link和@import.</p>
+		<h3>二者的区别</h3>
+		<dl>
+			<dt>区别一：</dt>
+			<dd>link是XHTML标签，除了加载CSS外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS。</dd>
+			<dt>区别二：</dt>
+			<dd>link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载。</dd>
+			<dt>区别三：</dt>
+			<dd>link是XHTML标签，无兼容问题；@import是在CSS2.1提出的，低版本的浏览器不支持。</dd>
+			<dt>区别四：</dt>
+			<dd>link支持使用Javascript控制DOM去改变样式；而@import不支持。</dd>
+		</dl>
+		<p>兼容问题，加载时间，加载对象，加载之后的操作</p>
+	</div>
+	<div>
+		<h1>浏览器内核</h1>
+		<dl>
+		<dt>Trident内核</dt>
+		<dd>代表产品Internet Explorer，又称其为IE内核。</dd>
+		<dt>Gecko内核</dt>
+		<dd>Mozilla Firefox，火狐内核</dd>
+		<dt>WebKit内核</dt>
+		<dd>主要代表作品有Safari和Google的浏览器Chrome。</dd>
+		<dt>Presto内核</dt>
+		<dd>代表作品OperaPresto是由Opera Software开发的浏览器排版引擎，供Opera 7.0及以上使用。</dd>
+		<dt>Blink内核</dt>
+		<dd>由Google和Opera Software开发的浏览器排版引擎，2013年4月发布。现在Chrome内核是Blink。谷歌还开发了自己的JS引擎，V8，使JS运行速度极大地提高了</dd>
+		</dl>
+	</div>
+	<div>
+		<h1>html5</h1>
+		<h3>html5新特性</h3>
+		<ul>
+			<li>用于绘画的canvas元素</li>
+			<li>用于媒介回放的video和audio元素</li>
+			<li>对本地的离线储存有更好的支持</li>
+			<li>新的特殊内容元素，如：article，footer,header,nav,section</li>
+			<li>新的表单控件：calendar，date,time,email,url,search</li>
+		</ul>
+		<h3>html语义化的优点</h3>
+		<ul>
+		<li>html结构清晰</li>
+		<li>为了在没有CSS的情况下，页面也能呈现出很好地内容结构、代码结构</li>
+		<li>和搜索引擎建立良好沟通，有助于爬虫抓取更多的有效信息：爬虫依赖于标签来确定上下文和各个关键字的权重</li>
+		<li>方便其他设备解析（如屏幕阅读器、盲人阅读器、移动设备）以意义的方式来渲染网页</li>
+		<li>便于团队开发和维护，语义化更具可读性</li></ul>
+	</div>
+	<div>
+		<h1>label标签</h1>
+		<p>label标签，可以利用for属性和其他表单的id相同绑定触发事件</p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css面试复习知识点</title>
+</head>
+
+<body>
+    <div>
+        <h1>IE盒子和标准盒子模型的区别</h1>
+        <img src="img/ie-box.png" alt="ie-box">
+        <img src="img/sta-box.png" alt="sta-box">
+        <p>二者的区别主要在于ie的content区域包括了border和padding部分</p>
+    </div>
+    <div>
+        <h1>css主要的选择符</h1>
+        <ul>
+            <li>*选择符：子选择符</li>
+            <li>#选择符：id</li>
+            <li>.选择符：class</li>
+            <li>li a{} 后代选择符</li>
+            <li>li{}</li>
+            <li>a:visited：伪类选择符</li>
+            <li>X+Y选择符：相邻选择符</li>
+            <li>X>Y选择符：直接后代选择符</li>
+            <li>X~Y选择符：与X+Y相似，但是选择更广，是兄弟选择符</li>
+            <li>X[title],x[title='xxx'],属性选择器</li>
+            <li>X[href*=""] X[href^=""] X[href$=""]</li>
+            <li>X:checked X:after X:hover X:not(selecter) X:nth-child() X:nth-last-child(n)</li>
+            <li>X:nth-of-type(n) X:nth-last-of-type(n)</li>
+            <li>X:first-child X:last-child X:only-child X:only-of-type X:first-of-type</li>
+        </ul>
+    </div>
+    <div>
+        <h1>CSS样式的优先级机制</h1>
+        <p>多重样式（Multiple Styles）：如果外部样式、内部样式和内联样式同时应用于同一个元素，（外部样式）External style sheet 大于（内部样式）Internal style sheet 大于（内联样式）Inline style</p>
+        <img src="img/CSS%E4%BC%98%E5%85%88%E7%BA%A7%E6%9C%BA%E5%88%B6.png" alt="css优先级机制">
+        <ul>
+            <li>选择器都有一个权值，权值越大越优先</li>
+            <li>当权值相等时，后出现的样式表设置要优于先出现的样式表设置</li>
+            <li>创作者的规则高于浏览者：即网页编写者设置的CSS 样式的优先权高于浏览器所设置的样式</li>
+            <li>继承的CSS 样式不如后来指定的CSS 样式</li>
+            <li> 在同一组属性设置中标有“!important”规则的优先级最大</li>
+        </ul>
+    </div>
+    <div>
+        <h1>CSS画三角形的原理</h1>
+        <a href="http://blog.csdn.net/xiebaochun/article/details/37581507">他人的博客</a>
+    </div>
+    <div>
+        <h1>css预处理器</h1>
+        <p>sass less</p>
+    </div>
+    <div>
+        <h1>line-height</h1>
+        <p>待补充</p>
+    </div>
+</body>
+
+</html>

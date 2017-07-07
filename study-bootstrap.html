@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>bootstrap学习笔记</title>
+    <link rel="stylesheet" href="packages/bootstrap.min.css">
+</head>
+
+<body>
+    <div>
+        <h1>排版</h1>
+        <div>
+            <h3>标题</h3>
+            <h3>这个一个h标题<small>这是一个小标题</small></h3>
+            <span class="h3">这是一个使用.h3的标签</span><span class="h5">这是一个使用.h2的标签</span>
+        </div>
+        <h1>文本</h1>
+        <p>p标签：默认14px(正常默认16px),行高：20px,底部外边距：10px;</p>
+        <p>对齐方式：.text-left,.text-center,.text-right</p>
+        <p class="text-left text-lowercase">text-left;text-lowercase</p>
+        <p class="text-right text-uppercase">text-right;text-uppercase</p>
+        <p class="text-center text-capitalize">text-center;text-capitalize</p>
+        <span>bootstrap练习span</span>
+        <mark>bootstrap练习mark</mark>
+        <del>bootstrap练习del</del>
+        <ins>bootstrap练习ins</ins>
+        <u>bootstrap练习u</u>
+        <small>bootstrap练习small</small>
+        <strong>bootstrap练习strong</strong>
+        <h1>bootstrap中的表格</h1>
+        <table class="table table-bordered  table-striped table-hover">
+            <caption>这是一个表格的标题</caption>
+            <thead>
+                <tr>
+                    <th>标题一</th>
+                    <th>标题二</th>
+                    <th>标题三</th>
+                    <th>标题四</th>
+                    <th>标题五</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="active">
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                    <td>内容五</td>
+                </tr>
+                <tr class="info">
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                    <td>内容五</td>
+                </tr>
+                <tr class="success">
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                    <td>内容五</td>
+                </tr>
+                <tr class="warning">
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                    <td>内容五</td>
+                </tr>
+                <tr class="danger">
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                    <td>内容五</td>
+                </tr>
+                <tr>
+                    <td>内容一</td>
+                    <td>内容二</td>
+                    <td>内容三</td>
+                    <td>内容四</td>
+                    <td>内容五</td>
+                </tr>
+            </tbody>
+        </table>
+        <h1>botstrap中的颜色</h1>
+        <p class="text-danger">text-danger</p>
+        <p class="text-warning">text-warning</p>
+        <p class="text-info">text-info</p>
+        <p class="text-success">text-success</p>
+        <p class="text-active">text-action</p>
+        <h1>bootstrap中的地址，引用，列表</h1>
+        <h2>地址</h2>
+        <address>
+            <strong>Some Company,Inc.</strong><br>
+            007 street<br>
+            Some city,State XXXXX <br>
+            <addr title="Phone">P:</addr>(123)-7890
+        </address>
+        <h2>引用</h2>
+        <blockquote class="pull-right">
+            <p> 这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。这是一个默认的引用实例。</p>
+            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+        </blockquote>
+        <h2>表格</h2>
+        <h4>内联列表</h4>
+        <ul class="list-inline">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+        </ul>
+        <h4>定义列表</h4>
+        <dl>
+            <dt>Description 1</dt>
+            <dd>Item 1</dd>
+            <dt>Description 2</dt>
+            <dd>Item 2</dd>
+        </dl>
+        <h4>水平的定义列表</h4>
+        <dl class="dl-horizontal">
+            <dt>Description 1</dt>
+            <dd>Item 1</dd>
+            <dt>Description 2</dt>
+            <dd>Item 2</dd>
+        </dl>
+        <h1>bootstrap中的代码</h1>
+        <code>&lthtml&gt</code>
+        <pre>
+            &lthtml&gt
+                &lthead&gt
+                    &ltlink rel="stylesheet" href=""&gt
+                &lt/head&gt
+                &ltbody&gt
+                    
+                &lt/body&gt
+            &lt/html&gt
+        </pre>
+        <h1>bootstrap的表单</h1>
+        <h3>普通表单</h3>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="form-control" id="name" placeholder="please enter your name">
+            </div>
+            <div class="form-group">
+                <label for="inputfile">文件输入</label>
+                <input type="file" id="inputfile">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox">请打</label>
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+        </form>
+        <h3>内联表单</h3>
+        <form role="form" class="form-inline">
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="form-control" id="name" placeholder="please enter your name">
+            </div>
+            <div class="form-group">
+                <label for="inputfile">文件输入</label>
+                <input type="file" id="inputfile">
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox">请打</label>
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+        </form>
+        <h3>水平表单</h3>
+        <form action="" role="form" class="form-horizontal">
+            <div class="form-group">
+                <label for="firstname" class="col-sm-2 control-label">名字</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="firstname" placeholder="请输入名字">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastname" class="col-sm-2 control-label">姓</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lastname" placeholder="请输入姓">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+          <input type="checkbox">请记住我
+        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">登录</button>
+                </div>
+            </div>
+        </form>
+        <h2>支持的表单控件</h2>
+        <h3>输入框input</h3>
+        <p>text、password、datetime、datetime-local、date、month、time、week、number、email、url、search、tel 和 color。适当的 type 声明是必需的，这样才能让 input 获得完整的样式。</p>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">标签</label>
+                <input type="text" class="form-control" placeholder="文本输入">
+            </div>
+        </form>
+        <h3>文本框textarea</h3>
+        <p>多行输入的时，则可以使用文本框 textarea。必要时可以改变 rows 属性</p>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">文本框</label>
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </form>
+        <h3>复选框单选框</h3>
+        <div class="checkbox">
+            <label>
+    <input type="checkbox" value="">选项 1
+  </label>
+        </div>
+        <div class="checkbox">
+            <label>
+    <input type="checkbox" value="">选项 2
+  </label>
+        </div>
+        <div class="radio">
+            <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>选项 1
+  </label>
+        </div>
+        <div class="radio">
+            <label>
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 2 - 选择它将会取消选择选项 1
+  </label>
+        </div>
+        <label for="name">内联的复选框和单选按钮的实例</label>
+        <div>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox1" value="option1">选项 1
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox2" value="option2">选项 2
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox3" value="option3">选项 3
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>选项 1
+            </label>
+            <label class="checkbox-inline">
+                <input type="radio" name="optionsRadiosinline" id="optionsRadios4" value="option2">选项 2
+            </label>
+        </div>
+        <h3>选择框</h3>
+        <form role="form">
+            <div class="form-group">
+                <label for="name">选择列表</label>
+                <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <label for="name">可多选的选择列表</label>
+                <select multiple="multiple" class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+            </div>
+        </form>
+        <h3>静态控件</h3>
+        <p>当您需要在一个水平表单内的表单标签后放置纯文本时，请在
+            <p> 上使用 class .form-control-static</p>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static">email@example.com</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                    </div>
+                </div>
+            </form>
+            <h3>表单控件状态</h3>
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">聚焦</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="focusedInput" type="text" value="该输入框获得焦点...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword" class="col-sm-2 control-label">禁用</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="disabledInput" type="text" placeholder="该输入框禁止输入..." disabled>
+                    </div>
+                </div>
+                <fieldset disabled>
+                    <div class="form-group">
+                        <label for="disabledTextInput" class="col-sm-2 control-label">禁用输入（Fieldset disabled）</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="disabledSelect" class="col-sm-2 control-label">禁用选择菜单（Fieldset disabled）</label>
+                        <div class="col-sm-10">
+                            <select id="disabledSelect" class="form-control">
+          <option>禁止选择</option>
+        </select>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group has-success">
+                    <label class="col-sm-2 control-label" for="inputSuccess">输入成功</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputSuccess">
+                    </div>
+                </div>
+                <div class="form-group has-warning">
+                    <label class="col-sm-2 control-label" for="inputWarning">输入警告</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputWarning">
+                    </div>
+                </div>
+                <div class="form-group has-error">
+                    <label class="col-sm-2 control-label" for="inputError">输入错误</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputError">
+                    </div>
+                </div>
+            </form>
+            <h1>按钮（待继续</h1>
+    </div>
+</body>
+
+</html>
